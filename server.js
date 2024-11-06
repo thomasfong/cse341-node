@@ -1,6 +1,8 @@
 const express = require('express');
+const connectDB = require('./DB/Conncection');
 const app = express();
 
+connectDB();
 const port = 3000;
 
 app.use('/', require('./routes'));
