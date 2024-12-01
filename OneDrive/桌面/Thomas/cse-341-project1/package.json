@@ -1,0 +1,30 @@
+{
+  "name": "cse-341-project1",
+  "version": "1.0.0",
+  "description": "My Frist project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasfong/cse-341-project1.git"
+  },
+  "author": "Thomas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasfong/cse-341-project1/issues"
+  },
+  "homepage": "https://github.com/thomasfong/cse-341-project1#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "install": "^0.13.0",
+    "mongodb": "^6.10.0",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.23.7"
+  }
+}
