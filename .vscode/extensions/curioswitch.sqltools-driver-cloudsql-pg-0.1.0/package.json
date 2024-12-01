@@ -1,0 +1,98 @@
+{
+	"name": "sqltools-driver-cloudsql-pg",
+	"displayName": "SQLTools Google Cloud SQL (PostgreSQL) Driver",
+	"description": "SQLTools Google Cloud SQL (PostgreSQL) Driver",
+	"version": "0.1.0",
+	"engines": {
+		"vscode": "^1.72.0"
+	},
+	"publisher": "curioswitch",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/curioswitch/vscode-sqltools-cloudsql-pg.git"
+	},
+	"bugs": {
+		"url": "https://github.com/curioswitch/vscode-sqltools-cloudsql-pg"
+	},
+	"keywords": [
+		"sqltools-driver",
+		"postgre",
+		"postgres",
+		"postgresql",
+		"cloudsql",
+		"gcp"
+	],
+	"galleryBanner": {
+		"theme": "dark",
+		"color": "#333333"
+	},
+	"icon": "icon.png",
+	"categories": [
+		"Programming Languages",
+		"Snippets",
+		"Formatters",
+		"Other"
+	],
+	"pricing": "Free",
+	"extensionDependencies": [
+		"mtxr.sqltools"
+	],
+	"activationEvents": [
+		"*",
+		"onLanguage:sql",
+		"onCommand:sqltools.*"
+	],
+	"main": "./out/extension.js",
+	"vsce": {
+		"dependencies": false,
+		"useYarn": false
+	},
+	"scripts": {
+		"format": "prettier --write .",
+		"vscode:prepublish": "yarn run build",
+		"vscode:package": "vsce package --allow-star-activation",
+		"build": "rimraf out && yarn run compile:ext && yarn run compile:ls",
+		"esbuild": "esbuild --platform=node --tsconfig=./tsconfig.json --external:vscode --log-level=error --color=true --format=cjs",
+		"compile:ext": "yarn run esbuild --bundle ./src/extension.ts --outfile=./out/extension.js --target=es2017 --define:process.env.PRODUCT=\"'ext'\"",
+		"compile:ls": "yarn run esbuild --bundle ./src/ls/plugin.ts --outfile=./out/ls/plugin.js --target=es2015 --define:process.env.PRODUCT=\"'ls'\"",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./"
+	},
+	"dependencies": {
+		"@google-cloud/cloud-sql-connector": "^1.2.1",
+		"@sqltools/base-driver": "^0.1.11",
+		"@sqltools/types": "^0.1.7",
+		"google-auth-library": "^9.4.1",
+		"lodash": "^4.17.19",
+		"pg": "^8.2.1",
+		"uuid": "^7.0.2"
+	},
+	"devDependencies": {
+		"@babel/preset-env": "^7.5.5",
+		"@types/lodash": "^4.14.123",
+		"@types/node": "^14.0.9",
+		"@types/pg": "^8.10.9",
+		"@types/uuid": "^9.0.7",
+		"@types/vscode": "^1.42.0",
+		"@vscode/vsce": "^2.22.0",
+		"esbuild": "^0.19.10",
+		"prettier": "^3.1.1",
+		"rimraf": "^5.0.5",
+		"typescript": "^5.3.3"
+	},
+	"packageManager": "yarn@4.0.2",
+	"__metadata": {
+		"id": "208aa52a-ce69-44d0-9961-d4a1e7add3e2",
+		"publisherId": "eef4242d-47b5-46e8-b78d-98565df20ef2",
+		"publisherDisplayName": "CurioSwitch",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1718978864262,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery"
+	}
+}
